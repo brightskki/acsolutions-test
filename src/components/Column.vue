@@ -1,6 +1,5 @@
 <template>
   <section
-    :style="{ 'flex': '0 0 24rem' }"
     class="draggable-section bg-white rounded-xl p-4 overflow-x-auto"
     :data-column-index="$vnode.key"
     @drop="drop"
@@ -62,6 +61,8 @@ export default {
 
 <style lang="scss">
 .draggable-section {
+  flex: 0 0 24rem;
+
   img, a {
     user-select: none;
     -webkit-user-drag: none;
