@@ -44,12 +44,12 @@ export default {
 
       const {
         fromColumnIndex,
-        cardIndex
-      } = JSON.parse(event.dataTransfer.getData("text"));
+        cardIndex,
+      } = JSON.parse(event.dataTransfer.getData('text'));
       const columnIndex = event.target.getAttribute('data-column-index');
 
       if (columnIndex && columnIndex !== fromColumnIndex && +columnIndex !== 0) {
-        this.MOVE_CARD([fromColumnIndex, columnIndex, cardIndex])
+        this.MOVE_CARD([fromColumnIndex, columnIndex, cardIndex]);
 
         if (+fromColumnIndex === 0) {
           this.getUser();
