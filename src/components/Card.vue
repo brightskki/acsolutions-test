@@ -1,6 +1,8 @@
 <template>
   <div
-    class="transition rounded-md bg-gray-50 hover:bg-gray-100 p-4 cursor-pointer border border-gray-100"
+    class="
+      transition rounded-md bg-gray-50 hover:bg-gray-100 p-4 cursor-pointer border border-gray-100
+    "
     :data-column-index="columnKey"
     :data-card-index="$vnode.key"
     :draggable="true"
