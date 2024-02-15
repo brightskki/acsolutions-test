@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app" class="h-screen flex flex-col sm:px-32">
+    <header class="p-4 bg-white rounded-md m-2">
+      <h1 class="text-xl font-semibold">Тестовое задание для ACSolutions</h1>
+      <p>Автор: Удальцов Кирилл</p>
+    </header>
+
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapActions } from 'vuex';
 
-#nav {
-  padding: 30px;
+export default {
+  data() {
+    return {};
+  },
+  async mounted() {
+    await this.getUser();
+  },
+  methods: {
+    ...mapActions(['getUser']),
+  },
+};
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style>
+  body {
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+/* background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%); */
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
-}
 </style>
