@@ -11,7 +11,7 @@ const getUserProperties = ({
   email,
   phone,
   name: { first, last, title },
-  picture: { thumbnail, large },
+  picture: { thumbnail },
   dob: { age },
   registered: { date },
   location: { city, country },
@@ -23,7 +23,6 @@ const getUserProperties = ({
   phone,
   name: `${title}. ${first} ${last}`,
   thumbnail,
-  avatar: large,
   age,
   registeredDate: getFormattedDate(date),
   city,
@@ -37,6 +36,13 @@ const getRequestHeaders = () => {
   headers.append('Content-Type', 'application/json');
 
   return headers;
-}
+};
 
-export { getUserProperties, getFormattedDate, getRequestHeaders };
+const apiUrl = 'https://randomuser.me/api';
+
+export {
+  getUserProperties,
+  getFormattedDate,
+  getRequestHeaders,
+  apiUrl,
+};

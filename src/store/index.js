@@ -1,11 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { getUserProperties, getRequestHeaders } from '@/helpers';
+import { getUserProperties, getRequestHeaders, apiUrl } from '@/helpers';
 
 Vue.use(Vuex);
-
-const API_URL = 'https://randomuser.me/api';
 
 export default new Vuex.Store({
   state: {
@@ -14,9 +12,11 @@ export default new Vuex.Store({
       ['Second column', []],
       ['Third column', []],
     ],
+    currentUser: {},
   },
   getters: {
     columns: (state) => state.columns,
+    currentUser: (state) => state.currentUser,
   },
   mutations: {
     SET_CARD: (state, [to = 0, user]) => {
@@ -28,11 +28,15 @@ export default new Vuex.Store({
       state.columns[from][1].splice(index, 1);
       state.columns[to][1].push(user);
     },
+    SET_CURRENT_USER: (state, payload) => {
+      console.log(payload.email);
+      state.currentUser = payload;
+    },
   },
   actions: {
     async getUser({ commit }) {
       try {
-        const response = await fetch(API_URL, { method: 'GET', headers: getRequestHeaders });
+        const response = await fetch(apiUrl, { method: 'GET', headers: getRequestHeaders });
         const { results } = await response.json();
 
         const user = getUserProperties(results?.[0]);
@@ -43,5 +47,4 @@ export default new Vuex.Store({
       }
     },
   },
-  modules: {},
 });
