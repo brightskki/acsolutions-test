@@ -1,5 +1,7 @@
 # Тестовое задание для ACSolutions от Удальцова Кирилла
 
+Ссылка на развернутое приложение: [https://admin.quickway.one/](https://admin.quickway.one/).
+
 ## Описание
 
 1. Внедрена конфигурация ESLint AirBnb.
