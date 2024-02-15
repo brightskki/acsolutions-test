@@ -29,7 +29,6 @@ export default new Vuex.Store({
       state.columns[to][1].push(user);
     },
     SET_CURRENT_USER: (state, payload) => {
-      console.log(payload.email);
       state.currentUser = payload;
     },
   },
